@@ -5,7 +5,8 @@ CC:=$(shell command -v clang 2>/dev/null)
 CC?=cc
 
 # Use bash for script commands (Should be present on POSIX shells)
-SHELL:=bash
+# Or replace this with the shell currently in use
+SHELL:=zsh
 
 # Pretty output (yes|no)
 PRETTY?=yes
@@ -26,7 +27,7 @@ else
 endif
 
 # No problems whatsoever are allowed
-CFLAGS=-g $(O) $(W) -Werror -Isrc -DLIB -DNDEBUG $(OPTFLAGS)
+CFLAGS+=-g $(O) $(W) -Werror -Isrc -DLIB -DNDEBUG $(OPTFLAGS)
 LIBS=-ldl -lm $(OPTLIBS)
 PREFIX?=/usr/local
 
