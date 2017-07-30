@@ -21,7 +21,7 @@ MAKECMDGOALS?=all
 # gnu-zero-variadic-macro-arguments is disabled because it breaks the
 # debugging macros
 ifneq (,$(findstring clang,$(CC)))
-	W=-Weverything -Wno-gnu-zero-variadic-macro-arguments
+	W=-Weverything -Wno-gnu-zero-variadic-macro-arguments -Wno-padded
 else
 	W=-Wall -Wextra
 endif
@@ -166,3 +166,6 @@ pre-build:
 # Notify build completion
 post-build:
 	@echo "[INFO] Build completed"
+
+docs:
+	@doxygen Doxyfile
